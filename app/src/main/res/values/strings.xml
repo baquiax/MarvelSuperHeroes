@@ -1,4 +1,17 @@
 <resources>
-    <string name="app_name">MarvelSuperHeroes</string>
-    <string name="title_activity_character_list">CharacterListActivity</string>
+    <string name="app_name">WeatherApp</string>
+    <string name="main.input.message">Ingrese una ciudad</string>
+    <string name="main.button.submit">Enviar</string>
+    <string name="main.message.temp">%1$s \u2103</string>
+    <string name="main.message.condition">Lluvia ligera</string>
+    <string name="main.message.min">Min: %1$s \u2103</string>
+    <string name="main.message.max">Max: %1$s \u2103</string>
+    <string name="main.message.sunrise">Salida de sol: %1$s AM</string>
+    <string name="main.message.sunset">Puesta de sol: %1$s PM</string>
+    <string name="title_activity_countries">CountriesActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
 </resources>
