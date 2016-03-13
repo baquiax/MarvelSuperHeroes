@@ -15,7 +15,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnTextChanged;
 
-public class SearchFragment extends Fragment implements ResultSearchFragment.OnSlectedCharacterListener{
+public class SearchFragment extends Fragment {
     @Bind(R.id.searchText)
     EditText searchText;
     private OnSearchListener mListener;
@@ -59,11 +59,6 @@ public class SearchFragment extends Fragment implements ResultSearchFragment.OnS
     public void onDetach() {
         super.onDetach();
         mListener = null;
-    }
-
-    @Override
-    public void onSelectCharacter(String character) {
-
     }
 
     public interface OnSearchListener {
