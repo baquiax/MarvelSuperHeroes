@@ -1,0 +1,23 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.baquiax.marvelsuperheroes.SearchFragment"
+    >
+
+    <EditText
+        android:id="@+id/searchText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_character_name"
+        android:background="@color/darkGrayColor"
+        android:textColorHint="@color/hitColor"
+        android:textColor="@color/whiteColor"
+        android:paddingStart="@dimen/input_top_padding"
+        android:paddingEnd="@dimen/input_left_padding"
+        android:paddingTop="@dimen/input_top_padding"
+        android:paddingBottom="@dimen/input_top_padding"
+        android:drawableEnd="@android:drawable/ic_menu_search"
+        android:maxLines="2"
+        />
+</LinearLayout>
