@@ -13,6 +13,7 @@ import com.baquiax.marvelsuperheroes.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.OnTextChanged;
 
 public class SearchFragment extends Fragment {
@@ -37,10 +38,10 @@ public class SearchFragment extends Fragment {
         return inflatedView;
     }
 
-    @OnTextChanged (R.id.searchText)
-    public void onSearch(CharSequence  s) {
-        if (mListener != null && s.length() > 0) {
-            mListener.onFoundCharacters(s.toString());
+    @OnClick(R.id.searchButton)
+    public void onSearch(Button b) {
+        if (mListener != null && this.searchText.length() > 0) {
+            mListener.onSearchCharacters(searchText.toString());
         }
     }
 
@@ -59,9 +60,5 @@ public class SearchFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
-    }
-
-    public interface OnSearchListener {
-        void onFoundCharacters(String character);
     }
 }

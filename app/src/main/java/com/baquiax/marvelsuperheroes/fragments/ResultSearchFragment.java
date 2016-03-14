@@ -4,50 +4,67 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.baquiax.marvelsuperheroes.R;
+import com.baquiax.marvelsuperheroes.adapters.OnCharacterClickListener;
+import com.baquiax.marvelsuperheroes.adapters.ResultSearchAdapter;
+import com.baquiax.marvelsuperheroes.models.Character;
 
-public class ResultSearchFragment extends Fragment {
-    private static final String ARG_PARAM1 = "characterName";
-    private String characterName;
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
-    private OnSlectedCharacterListener mListener;
+public class ResultSearchFragment extends Fragment implements OnCharacterClickListener {
+    @Bind(R.id.resultList)
+    RecyclerView resultList;
+    @Bind(R.id.nameToSearch)
+    TextView nameToSearch;
+
+    private OnSelectCharacterListener mListener;
+    private ResultSearchAdapter adapter;
 
     public ResultSearchFragment() {
         // Required empty public constructor
     }
 
-    public static ResultSearchFragment newInstance(String characterName) {
-        ResultSearchFragment fragment = new ResultSearchFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, characterName);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            characterName = getArguments().getString(ARG_PARAM1);
+    }
+
+    public void initAdapter() {
+        if (this.adapter == null) {
+            this.adapter = new ResultSearchAdapter(getActivity().getApplicationContext());
+            this.adapter.setOnItemClickListener(this);
         }
+    }
+
+    public void initRecyclerView() {
+        this.resultList.setLayoutManager(new LinearLayoutManager(getActivity()));
+        this.resultList.setAdapter(this.adapter);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_result_search, container, false);
+        View inflatedView = inflater.inflate(R.layout.fragment_result_search, container, false);
+        ButterKnife.bind(this, inflatedView);
+        initAdapter();
+        initRecyclerView();
+        return inflatedView;
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnSlectedCharacterListener) {
-            mListener = (OnSlectedCharacterListener) context;
+        if (context instanceof OnSelectCharacterListener) {
+            mListener = (OnSelectCharacterListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnSlectedCharacterListener");
@@ -60,7 +77,17 @@ public class ResultSearchFragment extends Fragment {
         mListener = null;
     }
 
-    public interface OnSlectedCharacterListener {
-        void onSelectCharacter(String character);
+    public void searchCharactersByName(String name) {
+        Log.d(getClass().toString(), name);
+        String formatString = getString(R.string.result_search);
+        this.nameToSearch.setText(String.format(formatString, this.adapter.getItemCount()));
+    }
+
+    @Override
+    public void onItemClick(Character character) {
+        Log.d(getClass().toString(), String.valueOf(character.getId()));
+        if (this.mListener != null) {
+            this.mListener.onSelectCharacter(character);
+        }
     }
 }
