@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements OnSearchListener,
         } else {
             Intent detailIntent = new Intent(this, CharacterDetailActivity.class);
             detailIntent.putExtra(CharacterDetailActivity.NAME, c.getName());
-            detailIntent.putExtra(CharacterDetailActivity.IMAGE_URL, c.getThumbnail());
+            detailIntent.putExtra(CharacterDetailActivity.IMAGE_URL, c.getImageUrl());
             startActivity(detailIntent);
         }
     }

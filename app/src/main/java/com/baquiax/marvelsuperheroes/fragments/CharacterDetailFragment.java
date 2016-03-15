@@ -45,6 +45,6 @@ public class CharacterDetailFragment extends Fragment {
 
     public void updateData(Character c) {
         this.characterName.setText(c.getName());
-        Glide.with(this).load(c.getThumbnail()).into(this.characterImage);
+        Glide.with(this).load(c.getImageUrl()).into(this.characterImage);
     }
 }

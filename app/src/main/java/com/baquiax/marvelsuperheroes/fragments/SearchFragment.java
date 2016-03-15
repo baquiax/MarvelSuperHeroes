@@ -41,7 +41,7 @@ public class SearchFragment extends Fragment {
     @OnClick(R.id.searchButton)
     public void onSearch(Button b) {
         if (mListener != null && this.searchText.length() > 0) {
-            mListener.onSearchCharacters(searchText.toString());
+            mListener.onSearchCharacters(searchText.getText().toString());
         }
     }
 

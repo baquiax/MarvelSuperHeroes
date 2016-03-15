@@ -81,6 +81,7 @@ public class ResultSearchFragment extends Fragment implements OnCharacterClickLi
         Log.d(getClass().toString(), name);
         String formatString = getString(R.string.result_search);
         this.nameToSearch.setText(String.format(formatString, this.adapter.getItemCount()));
+        this.adapter.searchCharacters(name);
     }
 
     @Override
