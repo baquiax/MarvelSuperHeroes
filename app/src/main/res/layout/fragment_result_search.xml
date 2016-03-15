@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.baquiax.marvelsuperheroes.fragments.ResultSearchFragment">
+    tools:context=".fragments.ResultSearchFragment">
 
     <TextView
         android:id="@+id/nameToSearch"
@@ -13,12 +13,15 @@
         android:textStyle="bold"
         android:text="@string/result"
         android:padding="10dp"
+        android:visibility="gone"
         />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/resultList"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/grayColor"
+        >
 
     </android.support.v7.widget.RecyclerView>
 </LinearLayout>

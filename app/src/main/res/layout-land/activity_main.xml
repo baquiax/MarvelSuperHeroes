@@ -30,11 +30,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="5"
+        android:background="@color/darkGrayColor"
         >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hi!"/>
+        <fragment
+            android:id = "@+id/characterDetail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:name="com.baquiax.marvelsuperheroes.fragments.CharacterDetailFragment"
+            tools:layout="@layout/fragment_character_detail"/>
     </LinearLayout>
 
 </LinearLayout>

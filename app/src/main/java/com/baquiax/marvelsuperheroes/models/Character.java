@@ -8,9 +8,9 @@ import java.util.HashMap;
 public class Character {
     private int id;
     private String name;
-    private HashMap<String,String> thumbnail;
+    private String thumbnail;
 
-    public Character(int id, String name, HashMap<String, String> thumbnail) {
+    public Character(int id, String name, String thumbnail) {
         this.id = id;
         this.name = name;
         this.thumbnail = thumbnail;
@@ -24,7 +24,7 @@ public class Character {
         return name;
     }
 
-    public HashMap<String, String> getThumbnail() {
+    public String getThumbnail() {
         return thumbnail;
     }
 
@@ -36,7 +36,7 @@ public class Character {
         this.name = name;
     }
 
-    public void setThumbnail(HashMap<String, String> thumbnail) {
+    public void setThumbnail(String thumbnail) {
         this.thumbnail = thumbnail;
     }
 

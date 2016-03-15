@@ -7,4 +7,7 @@
     <string name="result_search">%d resultados en la búsqueda.</string>
     <string name="result">Resultado</string>
     <string name="image">Image</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

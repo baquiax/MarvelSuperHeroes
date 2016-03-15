@@ -33,10 +33,7 @@ public class ResultSearchAdapter extends RecyclerView.Adapter<ResultSearchAdapte
     public ResultSearchAdapter(Context context) {
         this.context = context;
         this.resultOfSearch = new ArrayList<Character>();
-        HashMap<String, String> h = new HashMap<String, String>();
-        h.put("path", "http://i.annihil.us/u/prod/marvel/i/mg/a/10/528d369de3e4f");
-        h.put("extension", "jpg");
-        Character c = new Character(1009157,"Spider-Girl (Anya Corazon)", h);
+        Character c = new Character(1009157,"Spider-Girl (Anya Corazon)", "http://i.annihil.us/u/prod/marvel/i/mg/a/10/528d369de3e4f.jpg");
         this.resultOfSearch.add(c);
         this.resultOfSearch.add(c);
     }
@@ -58,9 +55,7 @@ public class ResultSearchAdapter extends RecyclerView.Adapter<ResultSearchAdapte
         Character c = resultOfSearch.get(position);
         holder.characterId.setText(String.valueOf(c.getId()));
         holder.characterName.setText(c.getName());
-        String iconUrl = c.getThumbnail().get("path") + "." + c.getThumbnail().get("extension");
-        Log.d(context.getClass().toString(), iconUrl);
-        Glide.with(context).load(iconUrl).into(holder.characterImage);
+        Glide.with(context).load(c.getThumbnail()).into(holder.characterImage);
         if (this.clickListener != null) {
             holder.setOnItemClickListener(c, this.clickListener);
         }
