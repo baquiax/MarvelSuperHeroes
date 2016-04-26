@@ -2,11 +2,18 @@ package com.baquiax.marvelsuperheroes;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TableLayout;
 
 import com.baquiax.marvelsuperheroes.activities.CharacterDetailActivity;
+import com.baquiax.marvelsuperheroes.adapters.PagerAdapter;
 import com.baquiax.marvelsuperheroes.fragments.CharacterDetailFragment;
 import com.baquiax.marvelsuperheroes.fragments.OnSearchListener;
 import com.baquiax.marvelsuperheroes.fragments.ResultSearchFragment;
@@ -24,8 +31,13 @@ public class MainActivity extends AppCompatActivity implements OnSearchListener,
         super.onCreate(savedInstanceState);
         this.setTitle(R.string.app_name);
         setContentView(R.layout.activity_main);
-        this.searchFragment = (ResultSearchFragment) this.getSupportFragmentManager().findFragmentById(R.id.resultSearchContainer);
-        this.detailFragment = (CharacterDetailFragment) this.getSupportFragmentManager().findFragmentById(R.id.characterDetail);
+
+        ViewPager vp = (ViewPager) findViewById(R.id.mainViewPager);
+        vp.setAdapter(new PagerAdapter(getSupportFragmentManager()));
+
+        TabLayout  t = (TabLayout)
+        //this.searchFragment = (ResultSearchFragment) this.getSupportFragmentManager().findFragmentById(R.id.resultSearchContainer);
+        //this.detailFragment = (CharacterDetailFragment) this.getSupportFragmentManager().findFragmentById(R.id.characterDetail);
     }
 
     @Override
